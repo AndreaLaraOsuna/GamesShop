@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title, content)" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:replace="${title}">GamesShop</title>
+    <link rel="stylesheet" th:href="@{/styles/style.css}">
+</head>
+<body>
+    <nav>
+        <a th:href="@{/juegos}" class="nav-brand">GamesShop</a>
+        <div class="nav-links">
+            <a th:href="@{/juegos}">Catálogo</a>
+            <a th:href="@{/juegos/nuevo}">Subir juego</a>
+            <a th:href="@{/fragments-demo}" style="color: var(--green); margin-left: 2rem">[Teoría]</a>
+        </div>
+    </nav>
+
+    <main class="container" th:replace="${content}">
+        Contenido por defecto.
+    </main>
+
+    <footer>GamesShop &copy; 2026</footer>
+</body>
+</html>

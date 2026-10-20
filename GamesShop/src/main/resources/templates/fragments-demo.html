@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Jugando con fragmentos</title>
+    <link rel="stylesheet" th:href="@{/styles/style.css}">
+</head>
+<body>
+<main class="container">
+    <p><a th:href="@{/juegos}">&larr; Volver al catálogo</a></p>
+
+    <div class="panel" style="margin-bottom: 30px;">
+        <h3>El fragmento</h3>
+        <p>Definimos el fragmento usando <code>th:fragment="miFragmento"</code></p>
+        <div th:fragment="miFragmento"
+             style="background: linear-gradient(to right, var(--primary), var(--secondary)); color: white; padding: 10px; border-radius: 4px;">
+            Hola, soy el contenido del fragmento
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>Usando el fragmento con <code>th:replace</code></h3>
+        <p>El contenedor <code>&lt;section&gt;</code> se reemplaza por completo por el fragmento (no queda el borde punteado).</p>
+        <section th:replace="~{::miFragmento}" style="border: 3px dashed aqua;">
+            Este texto y esta sección van a desaparecer.
+        </section>
+    </div>
+
+    <div class="panel">
+        <h3>Usando el fragmento con <code>th:insert</code></h3>
+        <p>El fragmento completo se mete <em>adentro</em> del contenedor existente (se conserva el borde punteado).</p>
+        <section th:insert="~{::miFragmento}" style="border: 3px dashed aqua;">
+            Este texto va a desaparecer, pero la sección se conserva.
+        </section>
+    </div>
+
+    <div class="panel">
+        <h3>Usando el fragmento con <code>th:include</code> <small>(obsoleto en Thymeleaf 3, usa insert en su lugar)</small></h3>
+        <p>Solo inserta el <b>contenido</b> del fragmento dentro del contenedor.</p>
+        <section th:include="~{::miFragmento}" style="border: 3px dashed aqua;">
+            Este texto se va reemplazar por el texto del fragmento, pero se va perder el color original del fragmento.
+        </section>
+    </div>
+</main>
+</body>
+</html>
