@@ -10,4 +10,13 @@ import java.util.List;
 public interface JuegoRepository extends JpaRepository<Juego, Long> {
 
     List<Juego> findByTituloContainingIgnoreCase(String palabra);
+
+    Juego findById(long id);
+
+    List<Juego> findByDescripcionContainingIgnoreCase(String descripcion);
+
+    List<Juego> findByTituloStartingWithIgnoreCase(String letra);
+
+
+
 }

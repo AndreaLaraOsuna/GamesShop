@@ -63,4 +63,13 @@ public class JuegoService {
         }
         return juegoRepository.findByTituloContainingIgnoreCase(palabra);
     }
+
+
+    public Juego obtenerJuegoPorId(long id) {
+        return juegoRepository.findById(id).orElse(null);
+    }
+
+    public void eliminarJuego(Long id){
+        juegoRepository.deleteById(id);
+    }
 }

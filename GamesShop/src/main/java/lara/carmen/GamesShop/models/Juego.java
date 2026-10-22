@@ -30,6 +30,8 @@ public class Juego {
     @Column(nullable = false)
     private Double precio;
 
+    private String categoria;
+
     @Column(name = "portada_url")
     private String portadaUrl;
 }

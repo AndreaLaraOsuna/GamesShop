@@ -18,7 +18,16 @@
                 </div>
                 <div class="form-group">
                     <label for="precio" class="form-label">Precio</label>
-                    <input type="number" id="precio" name="precio" step="0.01" min="0" required class="form-control">
+                    <input type="number" id="precio" name="precio" min="0" required class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria" class="form-label">Categoria</label>
+                    <select type="text" id="categoria" name="categoria"  required class="form-control">
+                        <option value="aventura">Aventura</option>
+                        <option value="RPG">RPG</option>
+                        <option value="gestion">Gestión</option>
+                    </select>
                 </div>
 
                 <div class="form-group" style="background-color: rgba(0,0,0,0.2); padding: 20px; border-radius: 8px; border: 1px dashed var(--primary);">
