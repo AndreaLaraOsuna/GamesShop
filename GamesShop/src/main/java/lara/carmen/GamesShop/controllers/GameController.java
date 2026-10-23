@@ -93,6 +93,16 @@ public class GameController {
         return  "redirect:/juegos";
     }
 
+    @GetMapping("/juego/{id}")
+    public String detalleJuego(@PathVariable long id, Model model) {
+        Juego juego=juegoService.obtenerJuegoPorId(id);
+        if(juego==null){
+            return "redirect:/juegos";
+        }
+        model.addAttribute("juego", juego);
+        return  "detalle-juego";
+    }
+
     @PostMapping("/juegos/eliminar/{id}")
     public String eliminarJuego(@PathVariable Long id){
         Juego juego=juegoService.obtenerJuegoPorId(id);
@@ -100,5 +110,7 @@ public class GameController {
             juegoService.eliminarJuego(id);
             return "redirect:/juegos";
         }
+
+        return "juegos";
     }
 }
